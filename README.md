@@ -1,0 +1,6 @@
+# INITIAL COMMIT
+
+This is me learning about cart functionality...
+
+I'm yet to complete the cart functionality. a product, an order and order-item can be aded from the admin page but not from the client-side, but if added, it can
+be rendered dynamically in the cart.html page. So i'm yet to add a functionality that let's a user add to their cart be themselves. The update will be done soon... 
