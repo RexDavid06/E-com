@@ -1,0 +1,46 @@
+{% extends 'home.html'%}
+{% load static %}
+
+  <!-- fruits section -->
+{% block content%}
+  <section class="fruit_section layout_padding-top">
+    <div class="container">
+      <h2 class="custom_heading">Fresh Fruits</h2>
+      <p class="custom_heading-text">
+        There are many variations of passages of Lorem Ipsum available, but
+        the majority have
+      </p>
+
+        {% for fruit in fruits %}
+      <div class="row layout_padding2">
+        <div class="col-md-8">
+          <div class="fruit_detail-box">
+            <h3>
+           {{fruit.name}}
+            </h3>
+            <p class="mt-4 mb-5">
+           {{fruit.description}}
+            </p>
+            <h4>${{fruit.price}}</h4>
+            <div>
+              <a href="" class="custom_dark-btn">
+                Add to Cart
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 d-flex justify-content-center align-items-center">
+          <div class="fruit_img-box d-flex justify-content-center ">
+            <img src="{{fruit.image.url}}" alt="" class="" width="100px" />
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+      
+      
+    </div>
+  </section>
+  {% endblock %}
+
+  <!-- end fruits section -->
+

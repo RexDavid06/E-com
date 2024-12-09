@@ -1,0 +1,65 @@
+{% extends 'home.html'%}
+{% load static%}
+{% block content%}
+<section class="h-100">
+    <div class="container h-100 py-5">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-10">
+          <a href="{% url 'fruits'%}" class="text-uppercase custom_dark-btn" style="margin-bottom: 10px;">
+          store
+          </a>
+          <div class="d-flex justify-content-between align-items-center mb-4">
+            <h3 class="fw-normal mb-0">Shopping Cart</h3>
+            <div>
+              <!-- <p class="mb-0"><span class="text-muted">Sort by:</span> <a href="#!" class="text-body">price <i
+                    class="fas fa-angle-down mt-1"></i></a></p> -->
+            </div>
+          </div>
+
+          {% for item in items %}
+          <div class="card rounded-3  mb-4">
+            <div class="card-body p-4">
+              <div class="row d-flex justify-content-between align-items-center">
+                <div class="col-md-2 col-lg-2 col-xl-2">
+                  <img
+                    src="{{item.product.image.url}}"
+                    class="img-thumbnail" alt="Fruit-Img">
+                </div>
+                <div class="col-md-3 col-lg-3 col-xl-3">
+                  <p class="lead fw-normal mb-2">{{item.product.name}}</p>
+                    {{item.product.description}}
+                </div>
+                <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
+               ` quantity: {{item.quantity}}
+                </div>
+                <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
+                  <h5 class="mb-0">${{item.product.price}}</h5>
+                </div>
+                <div class="col-md-1 col-lg-1 col-xl-1 text-end">
+                 <p>Total: ${{item.total}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          {%endfor %}
+          <div >
+            <p class="text-success">Total Items: {{order.cart_total_item}}</p>
+            <p class="text-success">Overall Total: $ {{order.cart_total_price}}</p>
+           </div>
+    
+  
+          <div class="card">
+            <a href="">
+            <div class="card-body">
+              <button  type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-warning btn-block btn-lg">Proceed to Checkout</button>
+            </div>
+          </a>
+          </div>
+  
+        </div>
+      </div>
+    </div>
+  </section>
+
+{% endblock %}
+
